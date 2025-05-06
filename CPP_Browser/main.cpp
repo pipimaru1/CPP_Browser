@@ -123,7 +123,7 @@ void InitializeWebView2(HWND hWnd)
 /////////////////////////////////////////////////////////////////
 // メイン関数
 /////////////////////////////////////////////////////////////////
-int WINAPI wWinMain(HINSTANCE hInst, HINSTANCE, LPWSTR, int nShowCmd) 
+int WINAPI wWinMain(HINSTANCE hInst, HINSTANCE, LPWSTR, int nShowCmd)
 {
     // STA モードで OLE 初期化
     if (FAILED(OleInitialize(NULL))) {
@@ -144,7 +144,7 @@ int WINAPI wWinMain(HINSTANCE hInst, HINSTANCE, LPWSTR, int nShowCmd)
     HMENU hFileMenu = CreatePopupMenu();
     AppendMenuW(hFileMenu, MF_STRING, ID_FILE_OPEN, L"開く");
     AppendMenuW(hFileMenu, MF_SEPARATOR, 0, nullptr);
-	AppendMenuW(hFileMenu, MF_STRING, ID_FILE_CHATGPT, L"ChatGPT を開く");
+    AppendMenuW(hFileMenu, MF_STRING, ID_FILE_CHATGPT, L"ChatGPT を開く");
     AppendMenuW(hFileMenu, MF_STRING, ID_FILE_GOOGLE, L"Google を開く");
     AppendMenuW(hFileMenu, MF_STRING, ID_FILE_YAHOO, L"Yahoo! Japan を開く");
     AppendMenuW(hFileMenu, MF_STRING, ID_FILE_KOMATSU, L"コマツポータル を開く");
@@ -242,11 +242,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
             break;
         }
         // 追加したメニュー
-		case ID_FILE_CHATGPT:
-			if (g_webview) {
-				g_webview->Navigate(L"https://chat.openai.com/chat");
-			}
-			break;
+        case ID_FILE_CHATGPT:
+            if (g_webview) {
+                g_webview->Navigate(L"https://chat.openai.com/chat");
+            }
+            break;
 
         case ID_FILE_GOOGLE:
             if (g_webview) {
@@ -259,7 +259,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
                 g_webview->Navigate(L"https://www.yahoo.co.jp");
             }
             break;
-		case ID_FILE_KOMATSU:   
+        case ID_FILE_KOMATSU:
             if (g_webview) {
                 g_webview->Navigate(L"https://globalkomatsu.sharepoint.com/sites/JP-Portal");
             }
