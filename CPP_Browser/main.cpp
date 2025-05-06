@@ -18,7 +18,7 @@
 
 //////////////////////////////////////////////////////////////////////////
 // 初期URL
-#define STARTURL L"https://google.com/"
+#define STARTURL L"https://www.yahoo.co.jp"
 
 //////////////////////////////////////////////////////////////////////////
 // プロキシ設定 特に指定しなくてもシステム設定を見に行く
@@ -41,6 +41,7 @@ using ceHdr = ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler;
 #define ID_FILE_CHATGPT  1010
 #define ID_FILE_GOOGLE   1011
 #define ID_FILE_YAHOO    1012
+#define ID_FILE_KOMATSU  1013
 
 //////////////////////////////////////////////////////////////////////////
 // ハンドラー
@@ -146,6 +147,7 @@ int WINAPI wWinMain(HINSTANCE hInst, HINSTANCE, LPWSTR, int nShowCmd)
 	AppendMenuW(hFileMenu, MF_STRING, ID_FILE_CHATGPT, L"ChatGPT を開く");
     AppendMenuW(hFileMenu, MF_STRING, ID_FILE_GOOGLE, L"Google を開く");
     AppendMenuW(hFileMenu, MF_STRING, ID_FILE_YAHOO, L"Yahoo! Japan を開く");
+    AppendMenuW(hFileMenu, MF_STRING, ID_FILE_KOMATSU, L"コマツポータル を開く");
 
     HMENU hMenu = CreateMenu();
     AppendMenuW(hMenu, MF_STRING, ID_FILE_BACK, L"戻る");
@@ -255,6 +257,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp) {
         case ID_FILE_YAHOO:
             if (g_webview) {
                 g_webview->Navigate(L"https://www.yahoo.co.jp");
+            }
+            break;
+		case ID_FILE_KOMATSU:   
+            if (g_webview) {
+                g_webview->Navigate(L"https://globalkomatsu.sharepoint.com/sites/JP-Portal");
             }
             break;
 
